@@ -1,0 +1,17 @@
+#title-page{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 100px;
+}
+#title-page h1{
+    margin-bottom: 10px;
+    color: #2d3436;
+}
+.number-vote{
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+}
+.number-vote i{
+    color: #f9ca24!important;
+}

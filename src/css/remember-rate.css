@@ -1,0 +1,459 @@
+.remember-rate-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.remember-rate{
+  min-height: 500px;
+  background-color: #fff;
+  width: 95%;
+  box-shadow: 0 0.2rem 0.5rem 0 rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: 0.3s;
+  transform: perspective(1000px) rotateY(var(--rotateCard,0)) translateY(var(--translateCard,0));
+  position: relative;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.remember-rate h1{
+  
+}
+.list-rates{
+  margin: 30px 0px;
+  display: flex;
+}
+.list-rates .rate{
+  margin: 0px 20px;
+}
+/* Pie chart */
+.pie {
+    --p: 0; 
+    --b:22px;
+    --c:darkred;
+    --w:150px;
+    
+    width:var(--w);
+    aspect-ratio:1;
+    position:relative;
+    display:inline-grid;
+    margin:5px;
+    place-content:center;
+    font-size:25px;
+    font-weight:bold;
+    font-family:sans-serif;
+  }
+  .pie[rate="0"]{--p:10!important;--c:darkred;}
+  .pie[rate="1"]{--p:1!important;--c:darkred;}
+  .pie[rate="2"]{--p:2!important;--c:darkred;}
+  .pie[rate="3"]{--p:3!important;--c:darkred;}
+  .pie[rate="4"]{--p:4!important;--c:darkred;}
+  .pie[rate="5"]{--p:5!important;--c:darkred;}
+  .pie[rate="6"]{
+    --p:6!important;
+    --c:darkred;
+  }
+  .pie[rate="7"]{
+    --p:7!important;
+    --c:darkred;
+  }
+  .pie[rate="8"]{
+    --p:8!important;
+    --c:darkred;
+  }
+  .pie[rate="9"]{
+    --p:9!important;
+    --c:darkred;
+  }
+  .pie[rate="10"]{
+    --p:10!important;
+    --c:darkred;
+  }
+  .pie[rate="11"]{
+    --p:11!important;
+    --c:darkred;
+  }
+  .pie[rate="12"]{
+    --p:12!important;
+    --c:darkred;
+  }
+  .pie[rate="13"]{
+    --p:13!important;
+    --c:darkred;
+  }
+  .pie[rate="14"]{
+    --p:14!important;
+    --c:darkred;
+  }
+  .pie[rate="15"]{
+    --p:15!important;
+    --c:darkred;
+  }
+  .pie[rate="16"]{
+    --p:16!important;
+    --c:darkred;
+  }
+  .pie[rate="17"]{
+    --p:17!important;
+    --c:darkred;
+  }
+  .pie[rate="18"]{
+    --p:18!important;
+    --c:darkred;
+  }
+  .pie[rate="19"]{
+    --p:19!important;
+    --c:darkred;
+  }
+  .pie[rate="20"]{
+    --p:20!important;
+    --c:darkred;
+  }.pie[rate="21"]{
+    --p:21!important;
+    --c:darkred;
+  }
+  .pie[rate="22"]{
+    --p:22!important;
+    --c:darkred;
+  }
+  .pie[rate="23"]{
+    --p:23!important;
+    --c:darkred;
+  }
+  .pie[rate="24"]{
+    --p:24!important;
+    --c:darkred;
+  }
+  .pie[rate="25"]{
+    --p:25!important;
+    --c:darkred;
+  }
+  .pie[rate="26"]{
+    --p:26!important;
+    --c:darkred;
+  }
+  .pie[rate="27"]{
+    --p:27!important;
+    --c:darkred;
+  }
+  .pie[rate="28"]{
+    --p:28!important;
+    --c:darkred;
+  }
+  .pie[rate="29"]{
+    --p:29!important;
+    --c:darkred;
+  }
+  .pie[rate="30"]{
+    --p:30!important;
+    --c:darkred;
+  }
+  .pie[rate="31"]{
+    --p:31!important;
+    --c:darkred;
+  }
+  .pie[rate="32"]{
+    --p:32!important;
+    --c:darkred;
+  }
+  .pie[rate="33"]{
+    --p:33!important;
+    --c:darkred;
+  }
+  .pie[rate="34"]{
+    --p:34!important;
+    --c:darkred;
+  }
+  .pie[rate="35"]{
+    --p:35!important;
+    --c:darkred;
+  }
+  .pie[rate="36"]{
+    --p:36!important;
+    --c:darkred;
+  }
+  .pie[rate="37"]{
+    --p:37!important;
+    --c:darkred;
+  }
+  .pie[rate="38"]{
+    --p:38!important;
+    --c:darkred;
+  }
+  .pie[rate="39"]{
+    --p:39!important;
+    --c:darkred;
+  }
+  .pie[rate="40"]{
+    --p:40!important;
+    --c:darkred;
+  }.pie[rate="41"]{
+    --p:41!important;
+    --c:darkred;
+  }
+  .pie[rate="42"]{
+    --p:42!important;
+    --c:darkred;
+  }
+  .pie[rate="43"]{
+    --p:43!important;
+    --c:darkred;
+  }
+  .pie[rate="44"]{
+    --p:44!important;
+    --c:darkred;
+  }
+  .pie[rate="45"]{
+    --p:45!important;
+    --c:darkred;
+  }
+  .pie[rate="46"]{
+    --p:46!important;
+    --c:darkred;
+  }
+  .pie[rate="47"]{
+    --p:47!important;
+    --c:darkred;
+  }
+  .pie[rate="48"]{
+    --p:48!important;
+    --c:darkred;
+  }
+  .pie[rate="49"]{
+    --p:49!important;
+    --c:darkred;
+  }
+  .pie[rate="50"]{
+    --p:50!important;
+    --c:darkred;
+  }.pie[rate="51"]{
+    --p:51!important;
+    --c:darkred;
+  }
+  .pie[rate="52"]{
+    --p:52!important;
+    --c:darkred;
+  }
+  .pie[rate="53"]{
+    --p:53!important;
+    --c:darkred;
+  }
+  .pie[rate="54"]{
+    --p:54!important;
+    --c:darkred;
+  }
+  .pie[rate="55"]{
+    --p:55!important;
+    --c:darkred;
+  }
+  .pie[rate="56"]{
+    --p:56!important;
+    --c:darkred;
+  }
+  .pie[rate="57"]{
+    --p:57!important;
+    --c:darkred;
+  }
+  .pie[rate="58"]{
+    --p:58!important;
+    --c:darkred;
+  }
+  .pie[rate="59"]{
+    --p:59!important;
+    --c:darkred;
+  }
+  .pie[rate="60"]{
+    --p:60!important;
+    --c:darkred;
+  }.pie[rate="61"]{
+    --p:61!important;
+    --c:darkred;
+  }
+  .pie[rate="62"]{
+    --p:62!important;
+    --c:darkred;
+  }
+  .pie[rate="63"]{
+    --p:63!important;
+    --c:darkred;
+  }
+  .pie[rate="64"]{
+    --p:64!important;
+    --c:darkred;
+  }
+  .pie[rate="65"]{
+    --p:65!important;
+    --c:darkred;
+  }
+  .pie[rate="66"]{
+    --p:66!important;
+    --c:darkred;
+  }
+  .pie[rate="67"]{
+    --p:67!important;
+    --c:darkred;
+  }
+  .pie[rate="68"]{
+    --p:68!important;
+    --c:darkred;
+  }
+  .pie[rate="69"]{
+    --p:69!important;
+    --c:darkred;
+  }
+  .pie[rate="70"]{
+    --p:70!important;
+    --c:darkred;
+  }.pie[rate="71"]{
+    --p:71!important;
+    --c:darkred;
+  }
+  .pie[rate="72"]{
+    --p:72!important;
+    --c:darkred;
+  }
+  .pie[rate="73"]{
+    --p:73!important;
+    --c:darkred;
+  }
+  .pie[rate="74"]{
+    --p:74!important;
+    --c:darkred;
+  }
+  .pie[rate="75"]{
+    --p:75!important;
+    --c:darkred;
+  }
+  .pie[rate="76"]{
+    --p:76!important;
+    --c:darkred;
+  }
+  .pie[rate="77"]{
+    --p:77!important;
+    --c:darkred;
+  }
+  .pie[rate="78"]{
+    --p:78!important;
+    --c:darkred;
+  }
+  .pie[rate="79"]{
+    --p:79!important;
+    --c:darkred;
+  }
+  .pie[rate="80"]{
+    --p:80!important;
+    --c:darkred;
+  }.pie[rate="81"]{
+    --p:81!important;
+    --c:darkred;
+  }
+  .pie[rate="82"]{
+    --p:82!important;
+    --c:darkred;
+  }
+  .pie[rate="83"]{
+    --p:83!important;
+    --c:darkred;
+  }
+  .pie[rate="84"]{
+    --p:84!important;
+    --c:darkred;
+  }
+  .pie[rate="85"]{
+    --p:85!important;
+    --c:darkred;
+  }
+  .pie[rate="86"]{
+    --p:86!important;
+    --c:darkred;
+  }
+  .pie[rate="87"]{
+    --p:87!important;
+    --c:darkred;
+  }
+  .pie[rate="88"]{
+    --p:88!important;
+    --c:darkred;
+  }
+  .pie[rate="89"]{
+    --p:89!important;
+    --c:darkred;
+  }
+  .pie[rate="90"]{
+    --p:90!important;
+    --c:darkred;
+  }.pie[rate="91"]{
+    --p:91!important;
+    --c:darkred;
+  }
+  .pie[rate="92"]{
+    --p:92!important;
+    --c:darkred;
+  }
+  .pie[rate="93"]{
+    --p:93!important;
+    --c:darkred;
+  }
+  .pie[rate="94"]{
+    --p:94!important;
+    --c:darkred;
+  }
+  .pie[rate="95"]{
+    --p:95!important;
+    --c:darkred;
+  }
+  .pie[rate="96"]{
+    --p:96!important;
+    --c:darkred;
+  }
+  .pie[rate="97"]{
+    --p:97!important;
+    --c:darkred;
+  }
+  .pie[rate="98"]{
+    --p:98!important;
+    --c:darkred;
+  }
+  .pie[rate="99"]{
+    --p:99!important;
+    --c:darkred;
+  }
+  .pie[rate="100"]{
+    --p:100!important;
+    --c:darkred;
+  }
+  .pie:before,
+  .pie:after {
+    content:"";
+    position:absolute;
+    border-radius:50%;
+  }
+  .pie:before {
+    inset:0;
+    background:
+      radial-gradient(farthest-side,var(--c) 98%,#0000) top/var(--b) var(--b) no-repeat,
+      conic-gradient(var(--c) calc(var(--p)*1%),#0000 0);
+    -webkit-mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+            mask:radial-gradient(farthest-side,#0000 calc(99% - var(--b)),#000 calc(100% - var(--b)));
+  }
+  .pie:after {
+    inset:calc(50% - var(--b)/2);
+    background:var(--c);
+    transform:rotate(calc(var(--p)*3.6deg)) translateY(calc(50% - var(--w)/2));
+  }
+  .animate {
+    animation:p 1s .5s both;
+  }
+  .no-round:before {
+    background-size:0 0,auto;
+  }
+  .no-round:after {
+    content:none;
+  }
+  @keyframes p {
+    from{--p:0}
+  }
