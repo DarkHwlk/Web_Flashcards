@@ -1,7 +1,7 @@
 import React from "react";
 
 /* components */
-import PageLearnFlashcard from "./components/page/PageLearnFlashcard";
+import PageLearnFlashcard from "./components/page-learn-flashcard/PageLearnFlashcard";
 
 function App() {
   return (

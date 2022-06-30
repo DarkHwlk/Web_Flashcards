@@ -152,8 +152,12 @@ button:hover{
 .options-block p i{
   margin-right: 15px;
 }
-.options-content{
+p.options-content{
+  margin: 5px 0px;
   margin-left: 10px;
+}
+p.options-content.active{
+  background-color: #f9ca24;
 }
 .bell-notice{
   color: #192a56;
@@ -241,6 +245,11 @@ button:hover{
   padding: 30px;
   width: 100%;
   text-align: center;
+}
+/* Slide card */
+.main-flashcard.slide-card{
+  --slideCardLeft: -10px;
+  --slideCardRight: -10px;
 }
 .main-flashcard>.front-flashcard>h1{
   font-size: 40px;

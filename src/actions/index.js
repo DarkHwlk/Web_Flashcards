@@ -13,3 +13,12 @@ export const actNextMainFlashcard = () => {
         type: TYPES.NEXT_MAIN_FLASHCARD,
     }
 }
+
+/* actions tabs */
+// Change current tab
+export const actChangeCurrentTab = (idTab) => {  
+    return{
+        type: TYPES.CHANGE_CURRENT_TAB,
+        idTab: idTab,
+    }
+}
