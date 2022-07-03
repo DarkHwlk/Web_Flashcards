@@ -19,7 +19,7 @@ function PageLearnFlashcard(props) {
 
   const showTab = (tabs, idTab) => {
     let result = null;
-    result = tabs.find((tab)=>{
+    result = tabs.find((tab, id)=>{
       return idTab === tab.id;
     }).show();
     return result;

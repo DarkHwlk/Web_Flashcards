@@ -11,8 +11,8 @@ function OptionsTab(props) {
     let result = null;
     result = tabs.filter((tab)=>{
       return tab.type === "LEARN";
-    }).map((tab)=>{
-      return <OptionTab tab={tab}/>;
+    }).map((tab, id)=>{
+      return <OptionTab tab={tab} key={id}/>;
     });
     return result;
   }
@@ -21,8 +21,8 @@ function OptionsTab(props) {
     let result = null;
     result = tabs.filter((tab)=>{
       return tab.type === "RESULT";
-    }).map((tab)=>{
-      return <OptionTab tab={tab}/>;
+    }).map((tab, id)=>{
+      return <OptionTab tab={tab} key={id}/>;
     });
     return result;
   }

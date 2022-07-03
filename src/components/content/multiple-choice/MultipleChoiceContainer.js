@@ -1,60 +1,44 @@
 import React, {useState} from "react";
+import {connect} from 'react-redux';
+
+import * as actions from '../../../actions/index';
 
 /* components */
+import AnswerMultipleChoice from "./AnswerMultipleChoice";
+import StatusMultipleChoice from "./StatusMultipleChoice";
+import QuestionMultipleChoice from "./QuestionMultipleChoice";
 
-function MultipleChoiceContainer() {
+function MultipleChoiceContainer(props) {
+    const {cardsObject, choiceObject, onBackMainFlashcard, onNextMainFlashcard, 
+        onChangeCurrentAnswer, onAddMultipleChoice} = props;
+
+    const {cards, cardFocus} = cardsObject;
 
     const [status, setStatus] = useState(-1); //-1: normal, 0: false, 1 true
-
     return (
     <div className="content-block">
         {/* main flashcard */}
         <div className="multiple-choice-container">
             <div className="multiple-choice" >
                 <div className="block-question">
-                    <h4>Meaning <span>1/20</span></h4>
-                    <div className="question">
-                        <h3>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                            The animal lives in water, it has fin<br/>
-                        </h3>
-                    </div>
+                    <h4>
+                        Meaning 
+                        <span>{cardFocus.id}/{cards.length}</span>
+                    </h4>
+                    <QuestionMultipleChoice cardFocus={cardFocus}/>
                 </div>
                 <div className="block-answer">
-                    <div className="status">
-                        <button><i className="fas fa-angle-left"/> Back</button>
-                        {status===-1 
-                        ? <h4>Choose the correct word</h4>
-                        : <h4 className={status?'correct':'incorrect'}>
-                        {status?'Correct':'Incorrect'}</h4>}
-                        <button>Next <i className="fas fa-angle-right"/></button>
-                    </div>
-                    <div className="answer">
-                        <button>
-                            <h3>1</h3>
-                            <p>Dog</p>
-                        </button>
-                        <button>
-                            <h3>2</h3>
-                            <p>Cat</p>
-                        </button>
-                        <button>
-                            <h3>3</h3>
-                            <p>Fish</p>
-                        </button>
-                        <button>
-                            <h3>4</h3>
-                            <p>Lion</p>
-                        </button>
-                    </div>
+                    <StatusMultipleChoice
+                        onBackMainFlashcard={()=>onBackMainFlashcard()}
+                        onNextMainFlashcard={()=>onNextMainFlashcard()}
+                        onChangeCurrentAnswer={(id)=>onChangeCurrentAnswer(id)}
+                    />
+                    <AnswerMultipleChoice 
+                        cardsObject={cardsObject}
+                        choiceObject={choiceObject} 
+                        onChangeCurrentAnswer={(id)=>onChangeCurrentAnswer(id)} 
+                        onAddMultipleChoice={(id, cardFocusId)=>onAddMultipleChoice(id, cardFocusId)}  
+                    />
                 </div>
             </div>
         </div>
@@ -62,4 +46,29 @@ function MultipleChoiceContainer() {
   );
 }
 
-export default MultipleChoiceContainer;
+/* Chuyen state cua reducer thanh props cua component nay */
+const mapStateToProps = (state) => {
+    return { 
+        cardsObject: state.cards,
+        choiceObject: state.multiple_choice,
+    };
+  }
+  /* Chuyen action thanh props cua component nay */
+  const mapDispatchToProps = (dispatch, props) => {
+    return {
+        onBackMainFlashcard: () => {
+            dispatch(actions.actBackMainFlashcard());
+        },
+        onNextMainFlashcard: () => {
+            dispatch(actions.actNextMainFlashcard());
+        },
+        onChangeCurrentAnswer: (id) => {
+            dispatch(actions.actChangeCurrentMultipleChoice(id));
+        },
+        onAddMultipleChoice: (id, cardFocusId) => {
+            dispatch(actions.actAddMultipleChoice(id, cardFocusId));
+        },
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(MultipleChoiceContainer);

@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/index';
 
 function OptionTab(props) {
-    const {tab, idCurrentTab, onChangeCurrentTab} = props;
+    const {tab, idCurrentTab, onChangeCurrentTab, key} = props;
     const {name, icon, id} = tab;
 
   return (
@@ -14,9 +14,10 @@ function OptionTab(props) {
             ?"options-content active"
             :"options-content"}
         onClick={() => onChangeCurrentTab(id)}
+        key={key}
     >
-        {icon.map((iconItem)=>{
-            return <i className={iconItem}/>;
+        {icon.map((iconItem, id)=>{
+            return <i className={iconItem} key={id}/>;
         })}
         {name} 
     </p>

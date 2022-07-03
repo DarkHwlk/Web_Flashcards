@@ -4,8 +4,6 @@ import WritingContainer from "../components/content/writing/WritingContainer";
 import ExamContainer from "../components/content/exam/ExamContainer";
 import ChartContainer from "../components/content/chart/ChartContainer";
 import RememberRateContainer from "../components/content/remember-rate/RememberRateContainer";
-import { faTable } from "@fortawesome/free-solid-svg-icons";
-import { tab } from "@testing-library/user-event/dist/tab";
 
 const tabs = [
     {

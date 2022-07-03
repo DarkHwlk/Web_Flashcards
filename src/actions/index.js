@@ -22,3 +22,20 @@ export const actChangeCurrentTab = (idTab) => {
         idTab: idTab,
     }
 }
+
+/* actions multiple choice */
+// Change current multiple choice
+export const actChangeCurrentMultipleChoice = (id) => {  
+    return{
+        type: TYPES.CHANGE_CURRENT_MULTIPLE_CHOICES,
+        id: id,
+    }
+}
+// Change current multiple choice
+export const actAddMultipleChoice = (id, cardFocusId) => {  
+    return{
+        type: TYPES.ADD_MULTIPLE_CHOICES,
+        id: id,
+        cardFocusId: cardFocusId,
+    }
+}

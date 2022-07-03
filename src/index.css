@@ -408,6 +408,12 @@ p.options-content.active{
   display: flex;
   padding: 15px 20px;
 }
+.multiple-choice .block-answer .answer button.correct{
+  background-color: #27ae60;
+}
+.multiple-choice .block-answer .answer button.incorrect{
+  background-color: #d63031;
+}
 .multiple-choice .block-answer .answer button h3{
   margin-right: 15px;
   font-size: 16px;
