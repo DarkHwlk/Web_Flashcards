@@ -428,6 +428,46 @@ p.options-content.active{
 .multiple-choice .block-answer .answer button p{
   font-size: 18px;
 }
+.multiple-choice.result{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.multiple-choice.result h1{
+  color: #192a56;
+  font-size: 40px;
+  margin-bottom: 25px;
+  font-weight: bolder;
+}
+.multiple-choice.result h3{
+  color: #192a56;
+  font-size: 35px;
+  margin-bottom: 25px;
+  font-weight: bolder;
+}
+.multiple-choice.result p{
+  color: #27ae60;
+  font-size: 20px;
+  font-weight: bolder;
+}
+.multiple-choice.result button{
+  background-color: #0984e3;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bolder;
+  border: none;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+}
+.multiple-choice.result button:hover{
+  background-color: #8e44ad;
+}
+.multiple-choice.hide{  /* hide block multiple-choice */
+  display: none;
+}
 
 /* Writing */
 .writing-container{

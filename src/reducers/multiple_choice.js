@@ -20,12 +20,8 @@ const multiple_choice = (state = initialState, action) => {
         case TYPES.CHANGE_MULTIPLE_CHOICES:  
             if((newMultipleChoices.length>cardFocusId)&&(newMultipleChoices[cardFocusId]===-1)){
                 newMultipleChoices[cardFocusId] = id;
-                console.log("newMultipleChoices");
-                console.log(newMultipleChoices);
             }else{
                 newMultipleChoices.push(id);
-                console.log("newMultipleChoices");
-                console.log(newMultipleChoices);
             }
             return {...state,
                 multipleChoices: newMultipleChoices};
@@ -33,12 +29,8 @@ const multiple_choice = (state = initialState, action) => {
         case TYPES.CHANGE_RESULT_MULTIPLE_CHOICES:  
             if((newresult.length>cardFocusId)&&(newresult[cardFocusId]===-1)){
                 newresult[cardFocusId] = status;
-                console.log("newresult");
-                console.log(newresult);
             }else{
                 newresult.push(status);
-                console.log("newresult");
-                console.log(newresult);
             }
             return {...state,
                 resultMultipleChoices: newresult};
@@ -46,13 +38,9 @@ const multiple_choice = (state = initialState, action) => {
         case TYPES.CHANGE_CARD_FOCUS:  
             if((newresult.length<=cardFocusId)){
                 newresult.push(-1);
-                console.log("newresult");
-                console.log(newresult);
             }
             if((newMultipleChoices.length<=cardFocusId)){
                 newMultipleChoices.push(-1);
-                console.log("newMultipleChoices");
-                console.log(newMultipleChoices);
             }
             return {...state,
                 resultMultipleChoices: newresult};

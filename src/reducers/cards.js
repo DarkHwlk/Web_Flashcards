@@ -63,6 +63,10 @@ const cards = (state = initialState, action) => {
             }
             return {...state};
 
+        case TYPES.RESET_CARD_FOCUS:  
+            newCardFocus = state.cards[0];
+            return {...state, cardFocus: newCardFocus};
+
         default: return {...state};
     }
 }

@@ -7,6 +7,7 @@ import * as actions from '../../../actions/index';
 import AnswerMultipleChoice from "./AnswerMultipleChoice";
 import StatusMultipleChoice from "./StatusMultipleChoice";
 import QuestionMultipleChoice from "./QuestionMultipleChoice";
+import ResultMultipleChoice from "./ResultMultipleChoice";
 
 function MultipleChoiceContainer(props) {
     const {cardsObject, choiceObject, onBackMainFlashcard, onNextMainFlashcard, 
@@ -31,10 +32,9 @@ function MultipleChoiceContainer(props) {
     <div className="content-block">
         {/* main flashcard */}
         <div className="multiple-choice-container">
-            <div className="multiple-choice" >
+            <div className="multiple-choice hide" >
                 <div className="block-question">
-                    <h4>
-                        Meaning 
+                    <h4> Meaning 
                         <span>{cardFocus.id+1}/{cards.length}</span>
                     </h4>
                     <QuestionMultipleChoice cardFocus={cardFocus}/>
@@ -56,6 +56,8 @@ function MultipleChoiceContainer(props) {
                     />
                 </div>
             </div>
+
+            <ResultMultipleChoice/>
         </div>
     </div>
   );

@@ -13,6 +13,13 @@ export const actNextMainFlashcard = () => {
         type: TYPES.NEXT_MAIN_FLASHCARD,
     }
 }
+// Reset card focus
+export const actResetCardFocus = () => {  
+    return{
+        type: TYPES.RESET_CARD_FOCUS,
+    }
+}
+
 
 /* actions tabs */
 // Change current tab
@@ -48,9 +55,8 @@ export const actChangeResultMultipleChoice = (status, cardFocusId) => {
     }
 }
 // Change card focus
-export const actChangeCardFocus = (cardFocusId) => {  
+export const actChangeCardFocus = () => {  
     return{
         type: TYPES.CHANGE_CARD_FOCUS,
-        cardFocusId: cardFocusId,
     }
 }

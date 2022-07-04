@@ -4,8 +4,13 @@ import {connect} from 'react-redux';
 import * as actions from '../../actions/index';
 
 function OptionTab(props) {
-    const {tab, idCurrentTab, onChangeCurrentTab, key} = props;
+    const {tab, idCurrentTab, onChangeCurrentTab, onResetCardFocus, key} = props;
     const {name, icon, id} = tab;
+
+    const onClickTab = (id) => {
+      onChangeCurrentTab(id);
+      onResetCardFocus();  //Reset cardFocus is the first card 
+    }
 
   return (
     <p 
@@ -13,7 +18,7 @@ function OptionTab(props) {
             idCurrentTab===id
             ?"options-content active"
             :"options-content"}
-        onClick={() => onChangeCurrentTab(id)}
+        onClick={() => onClickTab(id)}
         key={key}
     >
         {icon.map((iconItem, id)=>{
@@ -34,7 +39,10 @@ const mapStateToProps = (state) => {
     return {
       onChangeCurrentTab: (id) => {
         dispatch(actions.actChangeCurrentTab(id));
-    },
+      },
+      onResetCardFocus: () => {
+        dispatch(actions.actResetCardFocus());
+      },
     }
   }
   
