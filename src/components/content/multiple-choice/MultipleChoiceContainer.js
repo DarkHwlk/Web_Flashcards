@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {connect} from 'react-redux';
 
 import * as actions from '../../../actions/index';
@@ -11,12 +11,11 @@ import ResultMultipleChoice from "./ResultMultipleChoice";
 
 function MultipleChoiceContainer(props) {
     const {cardsObject, choiceObject, onBackMainFlashcard, onNextMainFlashcard, 
-        onChangeCurrentAnswer, onChangeMultipleChoice, onChangeResult, onChangeCardFocus} = props;
+        onChangeCurrentAnswer, onChangeMultipleChoice, onChangeResult, 
+        onChangeCardFocus, onResetMultipleChoice} = props;
 
     const {cards, cardFocus} = cardsObject;
     const {resultMultipleChoices} = choiceObject;
-
-    const [status, setStatus] = useState(-1); //-1: normal, 0: false, 1 true
 
     const getStatus = (result, cardFocusId) => {
         if((result.length>cardFocusId))
@@ -27,12 +26,27 @@ function MultipleChoiceContainer(props) {
     const changeCardFocus = () => {
         onChangeCardFocus(cardFocus.id);
     }
+    const getScore = (result, cards) => {
+        let score = 0;
+        if(result.some((element)=>{return (element===-1)})){
+            return score;
+        }
+        if(result.length==cards.length){
+            /* Done */
+            score = result.reduce((sum,element)=>{
+                return sum+element;
+            },0);
+        }
+        return score;
+    }
+
+    const score = getScore(resultMultipleChoices, cards);
 
     return (
     <div className="content-block">
         {/* main flashcard */}
         <div className="multiple-choice-container">
-            <div className="multiple-choice hide" >
+            <div className={`multiple-choice ${score?"hide":""}`} >
                 <div className="block-question">
                     <h4> Meaning 
                         <span>{cardFocus.id+1}/{cards.length}</span>
@@ -57,7 +71,10 @@ function MultipleChoiceContainer(props) {
                 </div>
             </div>
 
-            <ResultMultipleChoice/>
+            {score?<ResultMultipleChoice 
+            score={score} numberCards={cards.length}
+            onReset={onResetMultipleChoice}
+            />:null}
         </div>
     </div>
   );
@@ -90,6 +107,9 @@ const mapStateToProps = (state) => {
         },
         onChangeResult: (status, cardFocusId) => {
             dispatch(actions.actChangeResultMultipleChoice(status, cardFocusId));
+        },
+        onResetMultipleChoice: () => {
+            dispatch(actions.actResetMultipleChoice());
         },
     }
   }

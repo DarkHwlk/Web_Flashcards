@@ -55,8 +55,15 @@ export const actChangeResultMultipleChoice = (status, cardFocusId) => {
     }
 }
 // Change card focus
-export const actChangeCardFocus = () => {  
+export const actChangeCardFocus = (cardFocusId) => {  
     return{
         type: TYPES.CHANGE_CARD_FOCUS,
+        cardFocusId: cardFocusId,
+    }
+}
+// Reset multiple hoice
+export const actResetMultipleChoice = () => {  
+    return{
+        type: TYPES.RESET_MULTIPLE_CHOICE,
     }
 }

@@ -43,7 +43,15 @@ const multiple_choice = (state = initialState, action) => {
                 newMultipleChoices.push(-1);
             }
             return {...state,
-                resultMultipleChoices: newresult};
+                resultMultipleChoices: newresult,
+                multipleChoices: newMultipleChoices};
+
+        case TYPES.RESET_MULTIPLE_CHOICE:  
+            newresult=[];
+            newMultipleChoices=[];
+            return {currentMultipleChoice: -1,
+                resultMultipleChoices: newresult,
+                multipleChoices: newMultipleChoices};
 
         default: return {...state};
     }
