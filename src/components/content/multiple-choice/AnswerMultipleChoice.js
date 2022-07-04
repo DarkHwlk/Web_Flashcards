@@ -3,7 +3,7 @@ import React, {useState} from "react";
 /* components */
 
 function AnswerMultipleChoice(props) {
-    const {cardsObject, choiceObject, onChangeCurrentAnswer, onAddMultipleChoice} = props;
+    const {cardsObject, choiceObject, onChangeCurrentAnswer, onChangeMultipleChoice, onChangeResult} = props;
     const {cards, cardFocus} = cardsObject;
     const {multipleChoices, currentMultipleChoice} = choiceObject;
 
@@ -39,9 +39,10 @@ function AnswerMultipleChoice(props) {
     }
 
     /* Choose answer */
-    const chooseAnswer = (id, cardFocusId) => {
+    const chooseAnswer = (id, cardFocusId, answerId) => {
         onChangeCurrentAnswer(id);
-        onAddMultipleChoice(id, cardFocusId);
+        onChangeMultipleChoice(id, cardFocusId);
+        {(answerId===cardFocusId)?onChangeResult(1,cardFocusId):onChangeResult(0,cardFocusId)}
     }
 
     /* Show button */
@@ -68,7 +69,7 @@ function AnswerMultipleChoice(props) {
             }else{
                 if(currentMultipleChoice===-1){
                     return <button key={id}
-                                onClick={()=>chooseAnswer(id, cardFocus.id)}    
+                                onClick={()=>chooseAnswer(id, cardFocus.id, answerId)}    
                             >
                                 <h3>{id+1}</h3>
                                 <p>{cards[answerId].word}</p>
@@ -86,7 +87,7 @@ function AnswerMultipleChoice(props) {
                                 </button>;
                     }else{
                         return <button key={id}
-                                onClick={()=>chooseAnswer(id, cardFocus.id)}
+                                onClick={()=>chooseAnswer(id, cardFocus.id, answerId)}
                                     
                             >
                                 <h3>{id+1}</h3>

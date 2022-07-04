@@ -13,7 +13,7 @@ function ControlMainFlashcard(props) {
             <i className='fas fa-arrow-left'
                onClick={() => onBackMainFlashcard()}
             /> 
-            <span>{cardFocus.id}/{cards.length}</span>
+            <span>{cardFocus.id+1}/{cards.length}</span>
             <i  className='fas fa-arrow-right'
                 onClick={() => onNextMainFlashcard()}
             /> 

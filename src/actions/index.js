@@ -31,11 +31,26 @@ export const actChangeCurrentMultipleChoice = (id) => {
         id: id,
     }
 }
-// Change current multiple choice
-export const actAddMultipleChoice = (id, cardFocusId) => {  
+// Change multiple choice
+export const actChangeMultipleChoice = (id, cardFocusId) => {  
     return{
-        type: TYPES.ADD_MULTIPLE_CHOICES,
+        type: TYPES.CHANGE_MULTIPLE_CHOICES,
         id: id,
+        cardFocusId: cardFocusId,
+    }
+}
+// Change result multiple choice
+export const actChangeResultMultipleChoice = (status, cardFocusId) => {  
+    return{
+        type: TYPES.CHANGE_RESULT_MULTIPLE_CHOICES,
+        status: status,
+        cardFocusId: cardFocusId,
+    }
+}
+// Change card focus
+export const actChangeCardFocus = (cardFocusId) => {  
+    return{
+        type: TYPES.CHANGE_CARD_FOCUS,
         cardFocusId: cardFocusId,
     }
 }

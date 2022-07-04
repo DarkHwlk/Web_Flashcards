@@ -10,11 +10,23 @@ import QuestionMultipleChoice from "./QuestionMultipleChoice";
 
 function MultipleChoiceContainer(props) {
     const {cardsObject, choiceObject, onBackMainFlashcard, onNextMainFlashcard, 
-        onChangeCurrentAnswer, onAddMultipleChoice} = props;
+        onChangeCurrentAnswer, onChangeMultipleChoice, onChangeResult, onChangeCardFocus} = props;
 
     const {cards, cardFocus} = cardsObject;
+    const {resultMultipleChoices} = choiceObject;
 
     const [status, setStatus] = useState(-1); //-1: normal, 0: false, 1 true
+
+    const getStatus = (result, cardFocusId) => {
+        if((result.length>cardFocusId))
+            return result[cardFocusId];
+        else 
+            return -1;
+    }
+    const changeCardFocus = () => {
+        onChangeCardFocus(cardFocus.id);
+    }
+
     return (
     <div className="content-block">
         {/* main flashcard */}
@@ -23,12 +35,14 @@ function MultipleChoiceContainer(props) {
                 <div className="block-question">
                     <h4>
                         Meaning 
-                        <span>{cardFocus.id}/{cards.length}</span>
+                        <span>{cardFocus.id+1}/{cards.length}</span>
                     </h4>
                     <QuestionMultipleChoice cardFocus={cardFocus}/>
                 </div>
                 <div className="block-answer">
                     <StatusMultipleChoice
+                        status={getStatus(resultMultipleChoices,cardFocus.id)}
+                        changeCardFocus={()=>changeCardFocus()}
                         onBackMainFlashcard={()=>onBackMainFlashcard()}
                         onNextMainFlashcard={()=>onNextMainFlashcard()}
                         onChangeCurrentAnswer={(id)=>onChangeCurrentAnswer(id)}
@@ -37,7 +51,8 @@ function MultipleChoiceContainer(props) {
                         cardsObject={cardsObject}
                         choiceObject={choiceObject} 
                         onChangeCurrentAnswer={(id)=>onChangeCurrentAnswer(id)} 
-                        onAddMultipleChoice={(id, cardFocusId)=>onAddMultipleChoice(id, cardFocusId)}  
+                        onChangeMultipleChoice={(id, cardFocusId)=>onChangeMultipleChoice(id, cardFocusId)} 
+                        onChangeResult={(status, cardFocusId)=>onChangeResult(status, cardFocusId)} 
                     />
                 </div>
             </div>
@@ -65,8 +80,14 @@ const mapStateToProps = (state) => {
         onChangeCurrentAnswer: (id) => {
             dispatch(actions.actChangeCurrentMultipleChoice(id));
         },
-        onAddMultipleChoice: (id, cardFocusId) => {
-            dispatch(actions.actAddMultipleChoice(id, cardFocusId));
+        onChangeMultipleChoice: (id, cardFocusId) => {
+            dispatch(actions.actChangeMultipleChoice(id, cardFocusId));
+        },
+        onChangeCardFocus: (cardFocusId) => {
+            dispatch(actions.actChangeCardFocus(cardFocusId));
+        },
+        onChangeResult: (status, cardFocusId) => {
+            dispatch(actions.actChangeResultMultipleChoice(status, cardFocusId));
         },
     }
   }
