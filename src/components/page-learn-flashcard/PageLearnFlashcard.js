@@ -9,6 +9,8 @@ import Header from "../header/Header";
 import Title from "../title/Title";
 import AuthorContainer from "../info-author/AuthorContainer";
 
+import CustomCardsContainer from "../content/custom/CustomCardsContainer";
+
 import OptionsTab from "./OptionsTab";
 
 function PageLearnFlashcard(props) {
@@ -34,8 +36,8 @@ function PageLearnFlashcard(props) {
       <div className="content-page">
         <OptionsTab />
         {/* main flashcard container */} 
-
-        {showTab(tabs, idTab)}
+        {/* {showTab(tabs, idTab)} */}
+        <CustomCardsContainer/>
       </div>
     </div>
 

@@ -25,92 +25,6 @@ button:hover{
   max-width: 1170px;
   margin: auto;
 }
-#create_card{
-  width: 370px;
-  margin:auto;
-  padding: 20px;
-  margin-top: 10px;
-  background: whitesmoke;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
-}
-#create_card h2{
-  color: black;
-  text-align: center;
-}
-#create_card textarea{
-  width: 100%;
-  border-radius: 5px;
-  font-family: inherit;
-  border: 1px solid lightgray;
-  resize: none;
-}
-#create_card button{width: fit-content;}
-#flashcards{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: auto;
-  margin-top: 10px;
-  padding: 0px 10px;
-}
-.flashcard{
-  width: 370px;
-  height: 200px;
-  word-wrap: break-word;
-  margin: 10px; 
-  background:#fff;
-  cursor: pointer;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
-  position: relative;
-}
-.flashcard h2{font-size: 1rem;}
-.flashcard-question{
-  border-top: 1px solid red; 
-  padding: 15px; 
-  margin-top:30px;
-}
-.flashcard-question{
-  text-align:center; 
-  display:block; 
-  color:red;
-}
-.fa-minus{
-  top: 3%;
-  right: 2%;
-  position: absolute;
-  color: #1a1a1a;
-  transition: 0.3s ease-out;
-}
-.fa-minus:hover{color: red;}
-
-@media(max-width:1280px){
-  .container{width: 100%;}
-}
-
-@media(max-width:768px){
-  .flashcard{margin: auto;}
-
-  .flashcard{
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-}
-
-@media(max-width:480px){
-  #header{
-    padding: 20px;
-    gap: 10px;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #create_card{width: 95%;}
-
-  .flashcard{width: 100%;}
-
-}
 
 /* navigation-option */
 .content-page{
@@ -448,10 +362,14 @@ p.options-content.active{
   font-weight: bolder;
 }
 .multiple-choice.result p{
-  color: #27ae60;
   font-size: 20px;
   font-weight: bolder;
 }
+.multiple-choice.result p.very_bad{color: #d63031;}
+.multiple-choice.result p.bad{color: #8e44ad;}
+.multiple-choice.result p.not_bad{color: #2c3e50;}
+.multiple-choice.result p.good{color: #27ae60;}
+.multiple-choice.result p.very_good{color: #2980b9;}
 .multiple-choice.result button{
   background-color: #0984e3;
   color: #fff;
@@ -549,13 +467,14 @@ p.options-content.active{
 .writing .block-answer .answer input{
   flex: 4;
   border: none;
-  border-bottom: solid 4px #2980b9;
+  border-bottom: solid 3px #636e72;
   font-size: 18px;
   height: 40px;
   margin-right: 40px;
 }
 .writing .block-answer .answer input:focus{ /*hide boder when focus input*/
   outline: none;
+  border-bottom: solid 4px #2980b9;
 }
 .writing .block-answer .answer button{
   flex: 1;
@@ -730,4 +649,145 @@ p.options-content.active{
   font-size: 18px;
 }
 
+/* Custom cards */
+.minicard-container{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0px 20px;
+}
+.minicard{
+  width: 370px;
+  height: 200px;
+  word-wrap: break-word;
+  margin: 10px; 
+  background:#fff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+.minicard{
+  width: 250px;
+  height: 200px;
+  background-color: #fff;
+  box-shadow: 0 0.3125rem 1.25rem 0 rgb(0 0 0 / 16%);
+  border-radius: 20px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: 0.3s;
+  transform: perspective(1000px) rotateY(var(--rotateCard,0)) translateY(var(--translateCard,0));
+  position: relative;
+}
+.minicard:hover{
+  --translateCard: -5px;
+}
+.minicard h2{font-size: 1rem;}
+.minicard-word{
+  border-top: 1px solid #f9ca24; 
+  padding: 15px; 
+  margin-top:30px;
+}
+.minicard-meaning{
+  text-align:center; 
+  display:block; 
+  color:red;
+}
+.minicard i{
+  position: absolute;
+  color: #1a1a1a;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+.minicard i:hover{color: red;}
+.minicard i.edit-card{
+  top: 4%;
+  right: 25%;
+}
+.minicard i.reorder-card{
+  top: 4%;
+  right: 15%;
+  cursor: move;
+}
+.minicard i.delete-card{
+  top: 4%;
+  right: 5%;
+}
+@media(max-width:1280px){
+  .container{width: 100%;}
+}
 
+@media(max-width:768px){
+  .flashcard{margin: auto;}
+
+  .flashcard{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+@media(max-width:480px){
+  #header{
+    padding: 20px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #create_card{width: 95%;}
+
+  .minicard{width: 100%;}  
+
+}
+div.minicard.create_card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.minicard i.create_card{
+  color: #636e72;
+  font-size: 70px;
+}
+div.minicard i.create_card:hover{
+  color: #2c3e50;
+  font-size: 80px;
+}
+#create_card{
+  width: 100%;
+  margin:auto;
+  padding: 20px;
+  margin-top: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.9);
+  border-radius: 0.5rem;
+}
+#create_card h2{
+  color: black;
+  text-align: center;
+}
+#create_card label{
+  color: black;
+  font-weight: bold;
+}
+#create_card textarea{
+  width: 100%;
+  flex: 4;
+  border: none;
+  border-bottom: solid 3px #636e72;
+  font-size: 18px;
+  height: 30px;
+  margin-right: 40px;
+  resize: none;
+  margin-bottom: 15px;
+}
+#create_card textarea:focus{ /*hide boder when focus input*/
+  outline: none;
+  border-bottom: solid 4px #2980b9;
+}
+#create_card div{ display: flex; justify-content: flex-end;}
+#create_card div button{ width: fit-content; margin-left: 20px; color: #fff;}
+#create_card div button#save_card{ background-color: #0984e3;} #create_card div button#save_card:hover{ background-color: #192a56;}
+#create_card div button#close_card_box{ background-color: #d63031;} #create_card div button#close_card_box:hover{ background-color: #eb4d4b;}

@@ -12,7 +12,7 @@ import ResultMultipleChoice from "./ResultMultipleChoice";
 function MultipleChoiceContainer(props) {
     const {cardsObject, choiceObject, onBackMainFlashcard, onNextMainFlashcard, 
         onChangeCurrentAnswer, onChangeMultipleChoice, onChangeResult, 
-        onChangeCardFocus, onResetMultipleChoice} = props;
+        onChangeCardFocus, onResetMultipleChoice, onResetCardFocus} = props;
 
     const {cards, cardFocus} = cardsObject;
     const {resultMultipleChoices} = choiceObject;
@@ -38,6 +38,10 @@ function MultipleChoiceContainer(props) {
             },0);
         }
         return score;
+    }
+    const onReset = () => {
+        onResetCardFocus();
+        onResetMultipleChoice();
     }
 
     const score = getScore(resultMultipleChoices, cards);
@@ -73,7 +77,7 @@ function MultipleChoiceContainer(props) {
 
             {score?<ResultMultipleChoice 
             score={score} numberCards={cards.length}
-            onReset={onResetMultipleChoice}
+            onReset={onReset}
             />:null}
         </div>
     </div>
@@ -90,6 +94,9 @@ const mapStateToProps = (state) => {
   /* Chuyen action thanh props cua component nay */
   const mapDispatchToProps = (dispatch, props) => {
     return {
+        onResetCardFocus: () => {
+            dispatch(actions.actResetCardFocus());
+        },
         onBackMainFlashcard: () => {
             dispatch(actions.actBackMainFlashcard());
         },

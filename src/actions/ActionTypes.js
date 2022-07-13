@@ -1,3 +1,11 @@
+// actions edit_card
+export const CLOSE_EDIT_BOX = "CLOSE_EDIT_BOX";
+export const CREATE_EDIT_BOX = "CREATE_EDIT_BOX";
+export const EDIT_CARD = "EDIT_CARD";
+export const CHANGE_CONTENT_EDIT_BOX = "CHANGE_CONTENT_EDIT_BOX";
+export const SAVE_NEW_CARD = "SAVE_NEW_CARD";
+export const SAVE_EDITED_CARD = "SAVE_EDITED_CARD";
+
 // actions main flashcard
 export const BACK_MAIN_FLASHCARD = "BACK_MAIN_FLASHCARD";
 export const NEXT_MAIN_FLASHCARD = "NEXT_MAIN_FLASHCARD";

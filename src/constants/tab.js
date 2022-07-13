@@ -56,8 +56,8 @@ const tabs = [
         id: 7,
     },
     {
-        name: "Edit flashcards",
-        type: "EDIT",
+        name: "Custom flashcards",
+        type: "CUSTOM",
         icon: ["fas fa-square"],
         show: () => null,
         id: 8,

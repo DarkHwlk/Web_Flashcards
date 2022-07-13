@@ -44,6 +44,8 @@ var initialState = {
 const cards = (state = initialState, action) => {
     
     let newCardFocus;
+    let newCards;
+    let newCard;
     switch(action.type){
         case TYPES.BACK_MAIN_FLASHCARD:
             if(state.cardFocus.id>0){
@@ -66,6 +68,23 @@ const cards = (state = initialState, action) => {
         case TYPES.RESET_CARD_FOCUS:  
             newCardFocus = state.cards[0];
             return {...state, cardFocus: newCardFocus};
+
+        case TYPES.SAVE_NEW_CARD:  
+            newCards = state.cards;
+            newCard = {
+                id: newCards.length,
+                word: action.content.word,
+                meaning: action.content.meaning,
+                rememberRate: 0,
+            }
+            newCards.push(newCard);
+            return {...state, cards: newCards};    
+        
+        case TYPES.SAVE_EDITED_CARD:  
+            newCards = state.cards;
+            newCards[action.idEditedCard].word = action.content.word;
+            newCards[action.idEditedCard].meaning = action.content.meaning;
+            return {...state, cards: newCards};   
 
         default: return {...state};
     }

@@ -1,5 +1,51 @@
 import * as TYPES from './ActionTypes'
 
+/* actions edit box */
+// Close edit box
+export const actCloseEditBox = () => {  
+    return{
+        type: TYPES.CLOSE_EDIT_BOX,
+    }
+}
+// Create edit box
+export const actCreateEditBox = () => {  
+    return{
+        type: TYPES.CREATE_EDIT_BOX,
+    }
+}
+// Create edit box
+export const actEditCard = (idCard, content) => {  
+    return{
+        type: TYPES.EDIT_CARD,
+        idCard, 
+        content,
+    }
+}
+// Change content edit box
+export const actChangeContentEditBox = (content) => {  
+    return{
+        type: TYPES.CHANGE_CONTENT_EDIT_BOX,
+        content,
+    }
+}
+
+/* actions edit cards */
+// Save new card
+export const actSaveNewCard = (content) => {  
+    return{
+        type: TYPES.SAVE_NEW_CARD,
+        content,
+    }
+}
+// Save old card
+export const actSaveEditedCard = (idEditedCard, content) => {  
+    return{
+        type: TYPES.SAVE_EDITED_CARD,
+        idEditedCard,
+        content,
+    }
+}
+
 /* actions main flashcard */
 // Back Main Flashcard
 export const actBackMainFlashcard = () => {  
