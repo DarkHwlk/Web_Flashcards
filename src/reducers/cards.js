@@ -86,6 +86,16 @@ const cards = (state = initialState, action) => {
             newCards[action.idEditedCard].meaning = action.content.meaning;
             return {...state, cards: newCards};   
 
+        case TYPES.DELETE_CARD:  
+            newCards = state.cards;
+            let cardDelete = action.card;
+            newCards.splice(cardDelete.id,1);  //delete card in cards
+            /* Reset id of all cards */
+            newCards.forEach((card, i)=>{
+                card.id = i;
+            });
+            return {...state, cards: newCards};   
+
         default: return {...state};
     }
 }

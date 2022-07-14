@@ -1,10 +1,11 @@
-// actions edit_card
+// actions edit cards
 export const CLOSE_EDIT_BOX = "CLOSE_EDIT_BOX";
 export const CREATE_EDIT_BOX = "CREATE_EDIT_BOX";
 export const EDIT_CARD = "EDIT_CARD";
 export const CHANGE_CONTENT_EDIT_BOX = "CHANGE_CONTENT_EDIT_BOX";
 export const SAVE_NEW_CARD = "SAVE_NEW_CARD";
 export const SAVE_EDITED_CARD = "SAVE_EDITED_CARD";
+export const DELETE_CARD = "DELETE_CARD";
 
 // actions main flashcard
 export const BACK_MAIN_FLASHCARD = "BACK_MAIN_FLASHCARD";
@@ -14,7 +15,7 @@ export const RESET_CARD_FOCUS = "RESET_CARD_FOCUS";
 // actions tabs
 export const CHANGE_CURRENT_TAB = "CHANGE_CURRENT_TAB";
 
-// actions multiple_choice
+// actions multiple choice
 export const CHANGE_CURRENT_MULTIPLE_CHOICES = "CHANGE_CURRENT_MULTIPLE_CHOICES";
 export const CHANGE_MULTIPLE_CHOICES = "CHANGE_MULTIPLE_CHOICES";
 export const CHANGE_RESULT_MULTIPLE_CHOICES = "CHANGE_RESULT_MULTIPLE_CHOICES";

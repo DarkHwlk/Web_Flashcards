@@ -7,7 +7,7 @@ import * as actions from '../../../actions/index';
 import MiniCard from "./MiniCard";
 
 function MiniCards(props) {
-  const {cardsObject, onEditCard} = props;
+  const {cardsObject, onEditCard, onDeleteCard} = props;
 
   const {cards} = cardsObject;
 
@@ -17,6 +17,7 @@ function MiniCards(props) {
       return <MiniCard 
         card={card} key={id} 
         onEditCard={(id, content)=>onEditCard(id, content)}
+        onDeleteCard={(card)=>onDeleteCard(card)}
       />;
     });
     return result;
@@ -41,6 +42,9 @@ const mapDispatchToProps = (dispatch, props) => {
     onEditCard: (id, content) => {
       dispatch(actions.actEditCard(id, content));
     },  
+    onDeleteCard: (card) => {
+      dispatch(actions.actDeleteCard(card));
+    }, 
   };
 }
 

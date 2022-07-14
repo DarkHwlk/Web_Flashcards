@@ -45,6 +45,13 @@ export const actSaveEditedCard = (idEditedCard, content) => {
         content,
     }
 }
+// Save old card
+export const actDeleteCard = (card) => {  
+    return{
+        type: TYPES.DELETE_CARD,
+        card,
+    }
+}
 
 /* actions main flashcard */
 // Back Main Flashcard
